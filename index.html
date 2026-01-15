@@ -8,155 +8,49 @@
   <!-- Roboto -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
+  <!-- PWA Manifest (inline via data URL) -->
+  <link rel="manifest" href="data:application/json,{"name":"¡Qué Falta!","short_name":"Qué Falta","start_url":"./","display":"standalone","background_color":"#111","theme_color":"#e74c3c","icons":[{"src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAA","sizes":"192x192","type":"image/png"},{"src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAA","sizes":"512x512","type":"image/png"}]}" />
+
   <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      background: #f2f2f2;
-      color: #222;
-    }
-
-    header {
-      background: linear-gradient(135deg, #111, #333);
-      color: #fff;
-      padding: 28px 16px 20px;
-      text-align: center;
-    }
-
-    .logo {
-      font-size: 36px;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-    }
-
+    body { font-family: 'Roboto', sans-serif; margin: 0; background: #f2f2f2; color: #222; }
+    header { background: linear-gradient(135deg, #111, #333); color: #fff; padding: 28px 16px 18px; text-align: center; }
+    .logo { font-size: 36px; font-weight: 700; letter-spacing: -0.5px; }
     .logo span { color: #e74c3c; }
-
-    .sub {
-      margin-top: 6px;
-      font-size: 14px;
-      opacity: 0.8;
-    }
-
-    .leyenda {
-      display: flex;
-      justify-content: center;
-      gap: 18px;
-      margin-top: 14px;
-      font-size: 13px;
-    }
-
-    .leyenda div {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .dot {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      opacity: 0.3;
-      cursor: pointer;
-    }
-
-    .verde { background: #2ecc71; }
-    .amarillo { background: #f1c40f; }
-    .rojo { background: #e74c3c; }
-    .activo { opacity: 1; }
-
-    .container {
-      padding: 16px;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    h2 {
-      margin-top: 32px;
-      font-size: 20px;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 6px;
-    }
-
-    .item {
-      display: grid;
-      grid-template-columns: 1fr auto auto;
-      align-items: center;
-      background: #fff;
-      padding: 12px 14px;
-      margin: 8px 0;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    }
-
-    .item span {
-      font-size: 15px;
-      font-weight: 500;
-    }
-
-    .semaforo {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      min-width: 90px;
-    }
-
-    .acciones {
-      margin: 32px 0 20px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-    }
-
-    input, select {
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 14px;
-    }
-
-    button {
-      padding: 11px 18px;
-      font-size: 14px;
-      border: none;
-      border-radius: 10px;
-      background: #e74c3c;
-      color: #fff;
-      cursor: pointer;
-      font-weight: 500;
-    }
-
+    .sub { margin-top: 6px; font-size: 14px; opacity: 0.8; }
+    .leyenda { display: flex; justify-content: center; gap: 18px; margin-top: 12px; font-size: 13px; }
+    .leyenda div { display: flex; align-items: center; gap: 6px; }
+    .contadores { display:flex; justify-content:center; gap:16px; margin-top:12px; font-size:13px; }
+    .badge { padding:6px 10px; border-radius:999px; background:#222; }
+    .dot { width: 14px; height: 14px; border-radius: 50%; opacity: 0.3; cursor: pointer; }
+    .verde { background: #2ecc71; } .amarillo { background: #f1c40f; } .rojo { background: #e74c3c; } .activo { opacity: 1; }
+    .container { padding: 16px; max-width: 900px; margin: auto; }
+    h2 { margin-top: 28px; font-size: 20px; border-bottom: 2px solid #ddd; padding-bottom: 6px; }
+    .item { display: grid; grid-template-columns: 1fr auto auto; align-items: center; background: #fff; padding: 12px 14px; margin: 8px 0; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+    .item span { font-size: 15px; font-weight: 500; }
+    .semaforo { display: flex; gap: 10px; justify-content: center; min-width: 90px; }
+    .acciones { margin: 28px 0 18px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    input, select { padding: 10px; border-radius: 8px; border: 1px solid #ccc; font-size: 14px; }
+    button { padding: 11px 18px; font-size: 14px; border: none; border-radius: 10px; background: #e74c3c; color: #fff; cursor: pointer; font-weight: 500; }
     button.secondary { background: #444; }
     button:hover { opacity: 0.9; }
-
-    #searchBar {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 16px;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      font-size: 15px;
-    }
-
-    .delete {
-      background: transparent;
-      color: #999;
-      font-size: 18px;
-    }
-
+    #searchBar { width: 100%; padding: 12px; margin-bottom: 16px; border-radius: 10px; border: 1px solid #ccc; font-size: 15px; }
+    .delete { background: transparent; color: #999; font-size: 18px; }
     .delete:hover { color: #e74c3c; }
   </style>
 </head>
 <body>
-
 <header>
   <div class="logo">¡Qué <span>Falta</span>!</div>
   <div class="sub">Control simple de compras del hogar</div>
-
   <div class="leyenda">
     <div><div class="dot rojo activo"></div> Falta</div>
     <div><div class="dot amarillo activo"></div> Queda poco</div>
     <div><div class="dot verde activo"></div> Hay stock</div>
+  </div>
+  <div class="contadores">
+    <div class="badge">🔴 <span id="cntRojo">0</span></div>
+    <div class="badge">🟡 <span id="cntAmarillo">0</span></div>
+    <div class="badge">🟢 <span id="cntVerde">0</span></div>
   </div>
 </header>
 
@@ -170,6 +64,8 @@
     <button onclick="agregarProducto()">Agregar</button>
     <button class="secondary" onclick="mostrarLista()">Lista de compras</button>
     <button class="secondary" onclick="descargarLista()">Descargar lista</button>
+    <button class="secondary" onclick="todoComprado()">Todo comprado</button>
+    <button class="secondary" onclick="resetearTodo()">Reset</button>
   </div>
 
   <div id="panelLista" style="display:none; margin-top:30px;">
@@ -179,7 +75,7 @@
 </div>
 
 <script>
-// ---------------- DATOS BASE ----------------
+// ===================== DATOS =====================
 const defaultData = {
   "Verduras y frutas": ["Papas","Tomates","Cebolla","Zanahoria","Banana","Manzana","Lechuga","Zapallito"],
   "Carnes y pescados": ["Milanesas","Carne picada","Pollo","Filet de merluza","Chorizo"],
@@ -190,45 +86,34 @@ const defaultData = {
   "Bebidas": ["Agua","Gaseosa","Vino","Cerveza"]
 };
 
-let data = JSON.parse(localStorage.getItem('listaCompra')) || defaultData;
+let data = JSON.parse(localStorage.getItem('listaCompra')) || JSON.parse(JSON.stringify(defaultData));
 let estado = JSON.parse(localStorage.getItem('estadoProductos')) || {};
 
-// ---------------- INIT ----------------
+// ===================== INIT =====================
+const app = document.getElementById('app');
+const searchBar = document.getElementById('searchBar');
 const categoriaSelect = document.getElementById('categoriaNew');
-Object.keys(data).forEach(c => {
-  const o = document.createElement('option');
-  o.value = c;
-  o.textContent = c;
-  categoriaSelect.appendChild(o);
-});
 
-Object.values(data).flat().forEach(p => {
-  if (!estado[p]) estado[p] = 'verde';
-});
+categoriaSelect.innerHTML='';
+Object.keys(data).forEach(cat=>{ const o=document.createElement('option'); o.value=cat; o.textContent=cat; categoriaSelect.appendChild(o); });
+Object.values(data).flat().forEach(p=>{ if(!estado[p]) estado[p]='verde'; });
 
-// ---------------- STORAGE ----------------
-function guardar() {
-  localStorage.setItem('listaCompra', JSON.stringify(data));
-  localStorage.setItem('estadoProductos', JSON.stringify(estado));
+function guardar(){ localStorage.setItem('listaCompra', JSON.stringify(data)); localStorage.setItem('estadoProductos', JSON.stringify(estado)); }
+
+function actualizarContadores(){
+  const vals = Object.values(estado);
+  document.getElementById('cntRojo').textContent = vals.filter(v=>v==='rojo').length;
+  document.getElementById('cntAmarillo').textContent = vals.filter(v=>v==='amarillo').length;
+  document.getElementById('cntVerde').textContent = vals.filter(v=>v==='verde').length;
 }
 
-// ---------------- UI ----------------
-function dibujarLista() {
-  const filtro = document.getElementById('searchBar').value.toLowerCase();
-  const app = document.getElementById('app');
-  app.innerHTML = '';
-
-  Object.keys(data).forEach(cat => {
-    const items = data[cat].filter(p => p.toLowerCase().includes(filtro));
-    if (!items.length) return;
-
-    const h2 = document.createElement('h2');
-    h2.textContent = cat;
-    app.appendChild(h2);
-
-    items.forEach(p => {
-      const div = document.createElement('div');
-      div.className = 'item';
+function dibujarLista(){
+  const filtro = searchBar.value.toLowerCase(); app.innerHTML='';
+  Object.keys(data).forEach(cat=>{
+    const items = data[cat].filter(p=>p.toLowerCase().includes(filtro)); if(!items.length) return;
+    const h2=document.createElement('h2'); h2.textContent=cat; app.appendChild(h2);
+    items.forEach(p=>{
+      const div=document.createElement('div'); div.className='item';
       div.innerHTML = `
         <span>${p}</span>
         <div class="semaforo">
@@ -236,82 +121,32 @@ function dibujarLista() {
           <div class="dot amarillo ${estado[p]==='amarillo'?'activo':''}" onclick="setEstado('${p}','amarillo')"></div>
           <div class="dot rojo ${estado[p]==='rojo'?'activo':''}" onclick="setEstado('${p}','rojo')"></div>
         </div>
-        <button class="delete" onclick="eliminarProducto('${cat}','${p}')">×</button>
-      `;
+        <button class="delete" onclick="eliminarProducto('${cat}','${p}')">×</button>`;
       app.appendChild(div);
     });
   });
-
-  guardar();
+  guardar(); actualizarContadores();
 }
 
-function setEstado(producto, color) {
-  estado[producto] = color;
-  dibujarLista();
+function setEstado(p,c){ estado[p]=c; dibujarLista(); }
+function agregarProducto(){ const p=nuevoProducto.value.trim(); const c=categoriaNew.value; if(!p) return; if(!data[c].includes(p)){ data[c].push(p); estado[p]='verde'; } nuevoProducto.value=''; dibujarLista(); }
+function eliminarProducto(c,p){ data[c]=data[c].filter(x=>x!==p); delete estado[p]; dibujarLista(); }
+
+function obtenerFaltantes(){ return Object.keys(estado).filter(p=>estado[p]!=='verde'); }
+function mostrarLista(){ const panel=document.getElementById('panelLista'); const lista=document.getElementById('listaCompras'); const f=obtenerFaltantes(); panel.style.display='block'; lista.innerHTML=''; if(!f.length){ lista.innerHTML='<p>✅ No hay productos pendientes.</p>'; return;} f.forEach(p=>{ const d=document.createElement('div'); d.className='item'; d.innerHTML=`<span>${p}</span><span>${estado[p]==='rojo'?'🔴 Falta':'🟡 Queda poco'}</span>`; lista.appendChild(d); }); }
+function descargarLista(){ const f=obtenerFaltantes(); let t='Lista de compras – ¡Qué Falta!\n\n'; f.forEach(p=>t+='- '+p+'\n'); const b=new Blob([t],{type:'text/plain'}); const a=document.createElement('a'); a.href=URL.createObjectURL(b); a.download='lista_compras.txt'; a.click(); }
+
+function todoComprado(){ Object.keys(estado).forEach(p=>estado[p]='verde'); dibujarLista(); }
+function resetearTodo(){ if(!confirm('¿Resetear todo y volver al estado inicial?')) return; localStorage.removeItem('listaCompra'); localStorage.removeItem('estadoProductos'); data=JSON.parse(JSON.stringify(defaultData)); estado={}; Object.values(data).flat().forEach(p=>estado[p]='verde'); document.getElementById('panelLista').style.display='none'; dibujarLista(); }
+
+// ===================== PWA: Service Worker inline =====================
+if ('serviceWorker' in navigator) {
+  const swCode = `self.addEventListener('install',e=>{self.skipWaiting(); e.waitUntil(caches.open('qf-v1').then(c=>c.addAll(['./'])));}); self.addEventListener('fetch',e=>{e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request)));});`;
+  const blob = new Blob([swCode], { type: 'text/javascript' });
+  const swUrl = URL.createObjectURL(blob);
+  navigator.serviceWorker.register(swUrl);
 }
 
-function agregarProducto() {
-  const p = document.getElementById('nuevoProducto').value.trim();
-  const c = document.getElementById('categoriaNew').value;
-  if (!p) return;
-
-  if (!data[c].includes(p)) {
-    data[c].push(p);
-    estado[p] = 'verde';
-  }
-
-  document.getElementById('nuevoProducto').value = '';
-  dibujarLista();
-}
-
-function eliminarProducto(categoria, producto) {
-  data[categoria] = data[categoria].filter(x => x !== producto);
-  delete estado[producto];
-  dibujarLista();
-}
-
-// ---------------- LISTA DE COMPRAS ----------------
-function obtenerFaltantes() {
-  return Object.keys(estado).filter(p => estado[p] !== 'verde');
-}
-
-function mostrarLista() {
-  const panel = document.getElementById('panelLista');
-  const lista = document.getElementById('listaCompras');
-  const faltantes = obtenerFaltantes();
-
-  panel.style.display = 'block';
-  lista.innerHTML = '';
-
-  if (!faltantes.length) {
-    lista.innerHTML = '<p>✅ No hay productos pendientes.</p>';
-    return;
-  }
-
-  faltantes.forEach(p => {
-    const div = document.createElement('div');
-    div.className = 'item';
-    div.innerHTML = `<span>${p}</span><span>${estado[p] === 'rojo' ? '🔴 Falta' : '🟡 Queda poco'}</span>`;
-    lista.appendChild(div);
-  });
-}
-
-function descargarLista() {
-  const faltantes = obtenerFaltantes();
-  let texto = 'Lista de compras – ¡Qué Falta!\n\n';
-
-  faltantes.forEach(p => {
-    texto += '- ' + p + '\n';
-  });
-
-  const blob = new Blob([texto], { type: 'text/plain' });
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'lista_compras.txt';
-  a.click();
-}
-
-// ---------------- START ----------------
 dibujarLista();
 </script>
 </body>
